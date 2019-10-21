@@ -1,0 +1,44 @@
+import {DECK, DECK_DRAW} from '../actions/types'
+import fetchStates from './fetchStates';
+
+//newly defined default deck values to send
+const DEFAULT_DECK = {
+    deck_id: '',
+    remaining: 0,
+    fetchState: '',
+    message: '',
+    cards: []
+}
+
+const deckReducer = (state=DEFAULT_DECK, action) => {
+
+    switch(action.type){
+        case DECK.FETCH_SUCESS:
+        const { remaining, deck_id } = action;
+        return {
+            ...state,
+            remaining,
+            deck_id,
+            fetchState: fetchStates.success            
+        };
+        case DECK.FETCH_ERROR:
+        return {
+            ...state, 
+            message: action.message,
+            fetchState: fetchStates.error
+        };
+        case DECK_DRAW.FETCH_SUCCESS:
+        const {cards} = action;
+        return {
+            ...state, cards, remaining: action.remaining, fetchState: fetchStates.success
+        }
+        case DECK_DRAW.FETCH_ERROR:
+        return {
+            ...state, message: action.message, fetchState: fetchStates.error
+        }
+        default:
+            return state;
+    }
+}
+
+export default deckReducer

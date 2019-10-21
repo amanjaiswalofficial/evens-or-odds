@@ -1,0 +1,30 @@
+import {SET_GAME_STARTED, SET_INSTRUCTIONS_EXPANDED} from './types'
+
+export const startGame = () => {
+    return {
+        type: SET_GAME_STARTED,
+        gameStarted: true
+    }
+}
+
+export const cancelGame = () => {
+    
+    return {
+        type: SET_GAME_STARTED,
+        gameStarted: false
+    }
+}
+
+export const expandInstruction = () => {
+    return {
+        type: SET_INSTRUCTIONS_EXPANDED,
+        instructionExpanded: true
+    }
+}
+
+export const collapseInstruction = () => {
+    return {
+        type: SET_INSTRUCTIONS_EXPANDED,
+        instructionExpanded: false
+    }
+}

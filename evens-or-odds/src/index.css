@@ -1,0 +1,23 @@
+.title-fade-out{
+    opacity: 0;
+    animation-name: fade-out;
+    animation-duration: 2s;
+}
+
+/*names same as defined in keyframe, i.e. fade-in for fade-in below and viceversa*/
+.title-fade-in{
+    opacity: 100;
+    animation-name: fade-in;
+    animation-duration: 2s;
+}
+
+/*Class for animation*/
+@keyframes fade-out {
+    from {opacity: 100;}
+    to {opacity: 0;}
+}
+
+@keyframes fade-in {
+    from {opacity: 0;}
+    to {opacity: 100;}
+}
